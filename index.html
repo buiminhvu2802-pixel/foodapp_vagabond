@@ -201,7 +201,7 @@ genBtn.onclick=()=>{comboMode=comboMode==='co'?'lift':'co';genCombos();};
 document.getElementById('genDisc').onclick=genDisc;
 function jsonp(url){return new Promise((res,rej)=>{const cb='__g'+Date.now();window[cb]=d=>{res(d);try{delete window[cb];s.remove();}catch(e){}};const s=document.createElement('script');s.src=url+(url.includes('?')?'&':'?')+'callback='+cb;s.onerror=()=>rej();document.body.appendChild(s);setTimeout(()=>rej('t'),15000);});}
 async function loadSheet(url){try{const obj=await jsonp(url);if(Array.isArray(obj)){RAW=obj.slice();}else{RAW=(obj.doanhthu||[]).slice();PROMO=obj.khuyenmai||[];ADS=obj.quangcao||[];MATDO=obj.matdo||[];MON=(obj.mon&&obj.mon.length)?obj.mon:MON_FALLBACK.slice();}if(!RAW.length)throw 0;buildDerived();renderAll();srcBadge.textContent='ĐÃ KẾT NỐI (Apps Script)';}catch(e){srcBadge.textContent='DỮ LIỆU MẪU';}}
-const SHEET_URL='https://script.google.com/macros/s/AKfycbwmU9icuZdW1SS9hyzwK_5pVFB7hAOkuO5ygAbtqLjm_LBHbCp86a6GiRpMDT5YZH5-/exec';
+const SHEET_URL='https://script.google.com/macros/s/AKfycbycJT6FutV7Y_Ut5MDhIt6I8AEly6TGWCPAa0udtOIxLSwYpp08uq1jaG1FojnV3i_U/exec';
 buildDerived();renderAll();genCombos();
 loadSheet(SHEET_URL);setInterval(()=>loadSheet(SHEET_URL),60000);
 
